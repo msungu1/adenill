@@ -13,10 +13,10 @@ const ContactUs = () => {
     e.preventDefault();
     emailjs
       .sendForm(
-        "service_u7mbyuf", // ✅ Your Service ID
-        "template_c2ribz3", // ✅ Your Template ID
-        form.current,
-        "nBIbA9Fj71liLJrVt" // ✅ Your Public Key
+        import.meta.meta.env.VITE_EMAILJS_SERVICE_ID,
+    import.meta.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+    form.current,
+    import.meta.meta.env.VITE_EMAILJS_PUBLIC_KEY
       )
       .then(
         (result) => {
