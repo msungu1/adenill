@@ -2,7 +2,6 @@ import React, { useRef, useState } from "react";
 import emailjs from "emailjs-com";
 import { Link } from "react-router-dom";
 import "./ContactUs.css";
-import logo from "../../assets/logo.jpeg";
 import { Helmet } from "react-helmet-async";
 
 const ContactUs = () => {
@@ -274,3 +273,4 @@ const ContactUs = () => {
 
 
 export default ContactUs;
+
