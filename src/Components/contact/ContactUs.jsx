@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import emailjs from "emailjs-com";
 import { Link } from "react-router-dom";
 import "./ContactUs.css";
-// import logo from "../../assets/logo.jpeg";
+import logo from "../../assets/logo.jpeg";
 import { Helmet } from "react-helmet-async";
 
 const ContactUs = () => {
@@ -10,25 +10,28 @@ const ContactUs = () => {
   const [successMessage, setSuccessMessage] = useState("");
 
   const sendEmail = (e) => {
-    e.preventDefault();  // prevents page reload
-  
+    e.preventDefault();
     emailjs
       .sendForm(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,   // fixed: removed extra .meta
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID, // fixed
+        "service_u7mbyuf",
+        "template_gues3lm",
         form.current,
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY   // fixed
+        "nBIbA9Fj71liLJrVt",
       )
       .then(
         (result) => {
-          console.log("SUCCESS!", result.text);
-          setSuccessMessage("✅ Thank you! Your message has been sent. We’ll get back to you soon.");
-          form.current.reset();
+          console.log(result.text);
+          setSuccessMessage(
+            "✅ Thank you! Your message has been sent. We’ll get back to you soon.",
+          );
+          form.current.reset(); // clear the form after sending
         },
         (error) => {
-          console.log("FAILED...", error.text);
-          setSuccessMessage("❌ Oops! Something went wrong. Please try again later.");
-        }
+          console.log(error.text);
+          setSuccessMessage(
+            "❌ Oops! Something went wrong. Please try again later.",
+          );
+        },
       );
   };
 
@@ -259,7 +262,7 @@ const ContactUs = () => {
           </div>
         </div>
         <div className="footer-bottom">
-          <p>© 2024 Adennil Foundation. All rights reserved.</p>
+          <p>©️ 2024 Adennil Foundation. All rights reserved.</p>
           <p className="developer-credit">
             Developed by <span>Eng. Roberto</span>
           </p>
